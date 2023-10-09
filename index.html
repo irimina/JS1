@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function init(){
+            console.log("Hello World");
+            number = document.getElementById("number")
+            numVar = 0;
+            negativeToggle = true;
+            toggleHtml = document.getElementById("toggle");
+        }
+
+        function greet(){
+            divOut = document.getElementById("greet");
+            divOut.innerHTML += "Hello!";
+        }
+
+        function display(){
+            number.innerHTML = numVar;
+        }
+
+        function add() {
+            numVar++;
+            display();
+        }
+
+        function subtract() {
+            if (numVar - 1 > 0 || negativeToggle)
+            {
+                numVar--;
+                display();
+            }
+        }
+
+        function toggle() {
+            if (negativeToggle){
+                negativeToggle = false;
+                toggleHtml.innerHTML = "NEGATIVES ARE <B>OFF</B>";
+            }
+            else
+            {
+                negativeToggle = true;
+                toggleHtml.innerHTML = "NEGATIVES ARE <B>ON</B>";
+            }
+            
+            if (numVar < 0) {
+                numVar = 0;
+                display();
+            }
+        }
+
+    </script>
+</head>
+<body onload="init();">
+    <button onclick="greet();">Button</button>
+    <div id="greet"></div>
+    <br>
+
+    <button onclick="add();">ADD</button>
+    <button onclick="subtract();">SUBTRACT</button>
+    <button id="toggle" onclick="toggle();">NEGATIVES ARE <B>ON</B></button>
+    <div id="number">0</div>
+</body>
+</html>
